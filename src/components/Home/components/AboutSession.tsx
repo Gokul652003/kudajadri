@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { kudajadriData } from "/home/admn/kudajadri/kudajadri-data.ts";
+import { kudajadriData } from "../../../kudajadri-data";
 
 const AboutSession = () => {
   const about = kudajadriData.About;
