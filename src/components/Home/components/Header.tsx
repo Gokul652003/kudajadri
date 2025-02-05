@@ -5,8 +5,8 @@ import menuIcon from "/src/assets/menuIconHeader.svg";
 import logoIcon from "/src/assets/homeMobileHeader.svg";
 import whatAppIcon from "/src/assets/whatappHeader.svg";
 import whatAppBlackIcon from "/src/assets/KudajadriMobileWhatapp.svg";
-import HomeBlackIcon from "/home/admn/kudajadri/src/assets/kudajadriHomeMobile.svg";
-import MenuBlackIcon from "/home/admn/kudajadri/src/assets/KudajadriMobileMenu.svg";
+import HomeBlackIcon from "/src/assets/kudajadriHomeMobile.svg";
+import MenuBlackIcon from "/src/assets/KudajadriMobileMenu.svg";
 interface HeaderProps {
   type?: "white" | "black";
 }
