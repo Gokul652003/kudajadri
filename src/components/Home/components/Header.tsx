@@ -40,7 +40,7 @@ export const Header = ({ type = "white" }: HeaderProps) => {
           </div>
         </NavLink>
         <NavLink
-          to="/about"
+          to="/gallery"
           className={`px-4 py-2 ${
             type === "white" ? "text-[#FFF]" : "text-primary"
           } font-albertSans`}
