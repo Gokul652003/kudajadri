@@ -5,6 +5,7 @@ import About from "./components/About/About";
 import Booking from "./components/Booking/Booking";
 import RoomDetails from "./components/RoomDetails/RoomDetails";
 import { ContactPage } from "./components/Contact/ContactPage";
+import { Gallrey } from "./components/gallery/Gallrey";
 // import Example from "./a";
 
 const App = () => {
@@ -16,6 +17,8 @@ const App = () => {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/rooms/:id" element={<RoomDetails />} />
+        <Route path="/gallery" element={<Gallrey />} />
+
       </Routes>
     </Router>
   );
