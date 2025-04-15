@@ -1,8 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import { IndividualRoomSession } from "./IndividualRoomSession"
+import { IndividualRoomSession } from "./IndividualRoomSession";
 import roomOne from "/src/assets/roomOne.jpg";
+import roomTwo from "/src/assets/roomTwo.jpg";
+import roomThree from "/src/assets/roomThree.jpg";
+
 export const IndividualRooms = () => {
-    const navigate=useNavigate()
+  const navigate = useNavigate();
+
+  const handleClick = (path: string) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(() => {
+      navigate(path);
+    }, 300); // slight delay to let the scroll play out
+  };
+
   return (
     <div className="flex flex-col justify-center px-4 py-16 sm:px-[6%] sm:py-32 gap-6">
       <IndividualRoomSession
@@ -10,24 +21,23 @@ export const IndividualRooms = () => {
         title="Deluxe Rooms"
         discription="An economic escape in a lush atmosphere. This is affordable luxury with no compromises."
         image={roomOne}
-        onClick={() => navigate("/rooms/1")}
+        onClick={() => handleClick("/rooms/deluxe-rooms")}
       />
       <IndividualRoomSession
         subTitle="ESSENTIAL"
-        title="Deluxe Rooms"
+        title="Deluxe Heritage Rooms"
         discription="An economic escape in a lush atmosphere. This is affordable luxury with no compromises."
-        image={roomOne}
+        image={roomTwo}
         type="reverse"
-        onClick={() => navigate("/rooms/2")}
+        onClick={() => handleClick("/rooms/deluxe-heritage-rooms")}
       />
       <IndividualRoomSession
         subTitle="ESSENTIAL"
-        title="Deluxe Rooms"
+        title="Classic Rooms"
         discription="An economic escape in a lush atmosphere. This is affordable luxury with no compromises."
-        image={roomOne}
-        onClick={() => navigate("/rooms/3")}
+        image={roomThree}
+        onClick={() => handleClick("/rooms/classic-rooms")}
       />
     </div>
   );
-}
-
+};

@@ -22,7 +22,7 @@ const VideoBackground = () => {
       <div className="absolute top-0 left-0 right-0 z-20">
         <Header />
         <div className="flex flex-col gap-5">
-          <div className="mobile:pt-[449px] flex flex-col gap-5 items-center sm:pt-[30%] mobile:p-4 sm:p-0">
+          <div className="mobile:pt-[50%] flex flex-col gap-5 items-center sm:pt-[30%] mobile:p-4 sm:p-0">
             <div className="flex flex-col gap-2.5">
               <div className="flex items-center gap-2.5">
                 <div className="border border-[#FFF] flex-1" />
