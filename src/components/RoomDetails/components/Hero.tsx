@@ -1,6 +1,6 @@
 import { roomData } from '../constants';
 import mabileRoomImage from "../../../assets/RoomMbileImage.jpeg";
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const Hero = () => {
   const {id:roomId} = useParams();
