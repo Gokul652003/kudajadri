@@ -6,6 +6,17 @@ import {
   duluxeRoomsImage3,
   duluxeRoomsImage4,
   duluxeRoomsImage5,
+  deluxeHeritageRoomsImage1,
+  deluxeHeritageRoomsImage2,
+  deluxeHeritageRoomsImage3,
+  deluxeHeritageRoomsImage4,
+  deluxeHeritageRoomsImage5,
+  classicRoomsImage1,
+  classicRoomsImage2,
+  classicRoomsImage3,
+  classicRoomsImage4,
+  classicRoomsImage5,
+
 } from "./assets";
 
 import sessionImage from "../../assets/imageFour.jpg";
@@ -64,11 +75,11 @@ export const roomData: RoomData = {
     },
   },
   "deluxe-heritage-rooms": {
-    imageOne: duluxeRoomsImage1,
-    imageTwo: duluxeRoomsImage2,
-    imageThree: duluxeRoomsImage3,
-    imageFour: duluxeRoomsImage4,
-    imageFive: duluxeRoomsImage5,
+    imageOne: deluxeHeritageRoomsImage1,
+    imageTwo: deluxeHeritageRoomsImage2,
+    imageThree: deluxeHeritageRoomsImage3,
+    imageFour: deluxeHeritageRoomsImage4,
+    imageFive: deluxeHeritageRoomsImage5,
     sesstion: {
       titile: "Good Morning, Sunshine.",
       subTitlestr:
@@ -91,11 +102,11 @@ export const roomData: RoomData = {
     },
   },
   "classic-rooms": {
-    imageOne: duluxeRoomsImage1,
-    imageTwo: duluxeRoomsImage2,
-    imageThree: duluxeRoomsImage3,
-    imageFour: duluxeRoomsImage4,
-    imageFive: duluxeRoomsImage5,
+    imageOne: classicRoomsImage1,
+    imageTwo: classicRoomsImage2,
+    imageThree: classicRoomsImage3,
+    imageFour: classicRoomsImage4,
+    imageFive: classicRoomsImage5,
     sesstion: {
       titile: "Good Morning, Sunshine.",
       subTitlestr:
