@@ -16,14 +16,16 @@ const Direction = () => {
           </p>
         </div>
         <div>
-          <button className="bg-primary px-6 py-3 rounded-full text-[#fff] font-albertSans">
+          <button onClick={() => {
+            window.open('https://www.google.com/maps', '_blank');
+          }} className="bg-primary px-6 py-3 rounded-full text-[#fff] font-albertSans">
             Get Direction
           </button>
         </div>
       </div>
-      <div className="h-[418px] sm:block mobile:hidden flex justify-center">
-        <img src={mapImage} alt="" />
-      </div>
+      <img src={mapImage} alt="" className="max-w-full h-auto" />
+
+
     </div>
   );
 }
