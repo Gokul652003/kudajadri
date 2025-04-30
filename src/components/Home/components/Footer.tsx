@@ -3,6 +3,7 @@ import instaLogo from "../../../assets/Insta.svg";
 import youtubeLogo from "../../../assets/youtube.svg";
 import twitterLogo from "../../../assets/twitter.svg";
 import threadLogo from "../../../assets/Thread.svg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -48,13 +49,13 @@ const Footer = () => {
               Quick Links
             </span>
             <div className="text-secondary font-albertSans sm:text-xl  flex flex-col gap-2">
-              <span>Home</span>
-              <span>About Us</span>
-              <span>Room & Tariff</span>
-              <span>Facilities & Activities</span>
-              <span>Gallery</span>
-              <span>Contact Us</span>
-              <span>Booking</span>
+              <Link to='/'>Home</Link>
+              <Link to='/about'>About Us</Link>
+              <Link to=''>Room & Tariff</Link>
+              <Link to=''>Facilities & Activities</Link>
+              <Link to=''>Gallery</Link>
+              <Link to='/contact'>Contact Us</Link>
+              <Link to='/booking'>Booking</Link>
             </div>
           </div>
         </div>
