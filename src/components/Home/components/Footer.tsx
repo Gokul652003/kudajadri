@@ -3,9 +3,10 @@ import instaLogo from "../../../assets/Insta.svg";
 import youtubeLogo from "../../../assets/youtube.svg";
 import twitterLogo from "../../../assets/twitter.svg";
 import threadLogo from "../../../assets/Thread.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-primary">
       <div className="sm:px-[12%] large:px-[18%] sm:py-14 mobile:py-7 mobile:px-4 flex flex-col sm:flex-row sm:justify-between border-b border-[#fff] sm:gap-0 mobile:gap-[30px] items-center">
@@ -13,7 +14,7 @@ const Footer = () => {
           Ready to discover nature? Book now.
         </span>
         <div>
-          <button className="px-6 py-3 bg-[#fff] rounded-full text-primary font-albertSans text-base font-medium capitalize">
+          <button className="px-6 py-3 bg-[#fff] rounded-full text-primary font-albertSans text-base font-medium capitalize" onClick={() => {navigate("/booking")}}>
             Book Now
           </button>
         </div>

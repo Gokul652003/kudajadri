@@ -1,11 +1,39 @@
 import facebookLogo from "../../assets/contactFacbookLogo.svg";
 import threadLogo from "../../assets/ContactThreadLogo.svg"
-import instaLogo from "../../assets/contactInstaLogo.svg"; 
+import instaLogo from "../../assets/contactInstaLogo.svg";
 import twitterLogo from "../../assets/contactTwitterLogo.svg";
 import Footer from "../Home/components/Footer";
 import { Header } from "../Home/components/Header";
+import { useState } from "react";
+
+const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER
 
 export const ContactPage = () => {
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    setForm(prev => ({ ...prev, [field]: e.target.value }));
+  };
+
+  const handleSubmit = () => {
+    const { name, email, message } = form;
+
+    if (!name || !email || !message) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    const encodedMessage = encodeURIComponent(
+      `Hello! I'd like to get in touch with you.\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}`);
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+    window.open(url, "_blank");
+  };
+
   return (
     <div>
       {/* Header */}
@@ -97,28 +125,49 @@ export const ContactPage = () => {
               </span>
               <span className="font-ivy text-[44px] text-[#000]">Write</span>
               <div className="flex flex-col gap-3.5">
-                <TextField label="name"/>
-                <TextField label="Email"/>
-                <TextField label="Message"/>
+                <TextField label="Name" value={form.name} onChange={handleChange("name")} />
+                <TextField label="Email" value={form.email} onChange={handleChange("email")} />
+                <TextField label="Message" value={form.message} onChange={handleChange("message")} />
+                <div>
+
+                  <button className="px-6 py-3 rounded-full bg-primary text-[#fff] font-albertSans font-medium" onClick={handleSubmit}>
+                    Submit
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div className="pt-14 sm:hidden">
-        <Footer/>
+        <Footer />
       </div>
     </div>
   );
 };
 
-export const TextField: React.FC<{ label: string }> = ({ label }) => {
+
+interface TextFieldProps {
+  label: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+}
+
+export const TextField: React.FC<TextFieldProps> = ({
+  label,
+  value,
+  onChange,
+  placeholder = "Your Name",
+}) => {
   return (
     <div className="flex flex-col gap-1">
       <span className="text-[#666] font-albertSans font-medium">{label}</span>
       <input
         type="text"
-        placeholder="Your Name"
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
         className="border border-[#BFBFBF] p-3 w-full h-[54px] rounded-lg"
       />
     </div>
