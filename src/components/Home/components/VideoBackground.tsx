@@ -1,7 +1,9 @@
 import video from "../../../assets/videoBackGround.mp4";
 import {Header} from "./Header";
+import { useNavigate } from "react-router-dom";
 
 const VideoBackground = () => {
+  const navigate = useNavigate();
   return (
     <div className="relative w-full h-screen overflow-hidden">
       {/* Video Background */}
@@ -37,7 +39,7 @@ const VideoBackground = () => {
             </div>
           </div>
           <div className="flex justify-center">
-            <button className="px-6 py-3 rounded-full border text-[#FFF]">
+            <button className="px-6 py-3 rounded-full border text-[#FFF]" onClick={() => {navigate("/booking")}}>
               Book Now
             </button>
           </div>
