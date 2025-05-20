@@ -17,7 +17,7 @@ const Direction = () => {
         </div>
         <div>
           <button onClick={() => {
-            window.open('https://www.google.com/maps/place/Kudajadri+Drizzle+-+Best+Wayanad+Homestays/@11.6944682,76.0925395,17z/data=!4m9!3m8!1s0x3ba6752bf8e8c185:0x5bf951fa893c48b4!5m2!4m1!1i2!8m2!3d11.6944682!4d76.0925395!16s%2Fg%2F1ptwp6yd6?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D', '_blank');
+            window.open(import.meta.env.VITE_GOOGLE_MAPS_URL, '_blank');
           }} className="bg-primary px-6 py-3 rounded-full text-[#fff] font-albertSans">
             Get Direction
           </button>

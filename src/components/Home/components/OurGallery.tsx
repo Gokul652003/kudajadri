@@ -53,7 +53,7 @@ const OurGallery = () => {
         {navItems.map(({ id, label }) => (
           <a
             key={id}
-            className={`px-3.5 py-2 cursor-pointer transition-colors ${navItem === id
+            className={`px-3.5 py-2 cursor-pointer transition-colors font-albertSans ${navItem === id
               ? "border-b border-primary text-primary"
               : "text-secondary"
               }`}

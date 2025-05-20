@@ -7,7 +7,7 @@ export const RoomPriceSession = () => {
   const { id } = useParams(); // 'classic-rooms' etc.
   const roomData = roomDataMap[id || "classic-rooms"]
   return (
-    <div className="sm:px-20 sm:pb-32 flex mobile:flex-col sm:flex-row px-4">
+    <div className="sm:px-20 sm:pb-32 flex mobile:flex-col sm:flex-row px-4 large:px-[12%]">
       <div className="flex flex-col sm:gap-10 flex-1 mobile:gap-6 mobile:pb-8 sm:pb-0">
         <div className="flex flex-col gap-3">
           <h1 className="text-primary font-ivy mobile:text-[32px] sm:text-[44px]">

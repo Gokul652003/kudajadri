@@ -14,7 +14,7 @@ export const ContactPage = () => {
     email: "",
     message: "",
   });
-
+  const email = import.meta.env.VITE_KUDAJADRI_MAIL;
   const handleChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm(prev => ({ ...prev, [field]: e.target.value }));
   };
@@ -35,7 +35,7 @@ export const ContactPage = () => {
   };
 
   return (
-    <div>
+    <div className="sm:mt-[90px] mobile:mt-[52px]">
       {/* Header */}
       <Header type="black" />
 
@@ -45,7 +45,7 @@ export const ContactPage = () => {
         <div className="flex flex-col sm:gap-[90px] gap-7">
           <div className="flex flex-col gap-6 items-center">
             <span className="text-[#000] font-albertSans tracking-[1.6px] text-base">
-              Contact US
+              Contact Us
             </span>
             <span className="sm:text-[72px] text-[32px] text-[#000] font-staylista">
               Experience Kudajadri
@@ -61,20 +61,36 @@ export const ContactPage = () => {
                 <span className="text-[#000] font-albertSans tracking-[1.6px] uppercase mobile:text-sm sm:text-base">
                   ADDRESS
                 </span>
-                <span className="font-ivy sm:text-[44px] text-[32px] text-[#000]">Come</span>
-                <span className="text-secondary sm:text-xl font-albertSans">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-ivy sm:text-[44px] text-[32px] text-[#000]"
+                >
+                  Come
+                </a>
+                <a
+                  href={import.meta.env.VITE_GOOGLE_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-secondary sm:text-xl font-albertSans hover:underline"
+                >
                   Kudajadri Drizzle Homestay, Kayakkandy House, MR School Road,
                   Kaniyambetta, Wayanad, Kerala - 673122, India.
-                </span>
+                </a>
               </div>
+
               <div className="flex flex-col gap-2.5">
                 <span className="text-[#000] text-base font-albertSans tracking-[1.6px] uppercase">
                   EMAIL
                 </span>
-                <span className="text-secondary text-xl font-albertSans">
-                  kudajadri@ymail.com
-                </span>
+                <a
+                  href={`mailto:${email}`}
+                  className="text-secondary text-xl font-albertSans hover:underline"
+                >
+                  {email}
+                </a>
               </div>
+
               <div className="flex flex-col gap-2.5">
                 <span className="text-[#000] text-base font-albertSans tracking-[1.6px] uppercase">
                   FOLLow
@@ -113,10 +129,7 @@ export const ContactPage = () => {
               </span>
               <span className="font-ivy sm:text-[44px] text-[32px] text-[#000]">Call</span>
               <div className="flex flex-col text-secondary sm:text-xl font-albertSans">
-                <a href="tel:+91 9946 354 511">+91 9946 354 511</a>
-                <a href="tel:+91 9445 855 511">+91 9445 855 511</a>
-                <a href="tel:+91 9445 855 512">+91 9445 855 512</a>
-                <a href="tel:+91 9445 855 513">+91 9445 855 513</a>
+                <a href={`tel:${whatsappNumber}`}>{whatsappNumber}</a>
               </div>
             </div>
             <div className="w-full flex flex-col gap-2.5 flex-1">

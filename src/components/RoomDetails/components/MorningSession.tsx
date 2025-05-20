@@ -2,7 +2,7 @@ import { roomData } from "../constants";
 
 const MorningSession = () => {
   return (
-    <div className="sm:px-[6%] sm:py-32 flex gap-8 mobile:px-4 mobile:py-14 mobile:flex-col-reverse sm:flex-row sm:items-center">
+    <div className="sm:px-[6%] sm:py-32 flex gap-8 mobile:px-4 mobile:py-14 mobile:flex-col-reverse sm:flex-row sm:items-center large:px-[12%]">
       <div className="flex flex-col gap-6">
         <span className="text-[#000] font-ivy sm:text-[44px] mobile:text-[32px]">
           {roomData["deluxe-rooms"].sesstion.titile}

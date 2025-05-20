@@ -8,10 +8,13 @@ export const Gallrey = () => {
   return (
     <div>
         <Header type="black"/>
+        <div className="mobile:mt-12">
+
         <div className="sm:py-24 mobile:pt-8 mobile:pb-12">
             <HeroSession/>
             <ImageSession/>
             <ResponsiveImageSession/>
+        </div>
         </div>
         <Footer/>
       
