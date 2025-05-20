@@ -7,7 +7,7 @@ import PeacefulEnvironment from "../../../assets/PeacefulEnvironment.svg";
 
 const Amenities = () => {
   return (
-    <div className="sm:px-[6%] sm:py-32 bg-primary mobile:px-4 mobile:py-14">
+    <div className="sm:px-[6%] sm:py-32 bg-primary mobile:px-4 mobile:py-14" id="a">
       <div className="flex flex-col sm:gap-16 mobile:gap-8">
         <div className="flex flex-col gap-6 items-center">
           <div className="flex flex-col gap-6 font-albertSans items-center">

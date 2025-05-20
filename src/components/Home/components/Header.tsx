@@ -22,13 +22,13 @@ export const Header = ({ type = "white" }: HeaderProps) => {
         >
           About Us
         </NavLink>
-        <NavLink
-          to="/booking"
+        <a
+          href="#a"
           className={`px-4 py-2 ${type === "white" ? "text-[#FFF]" : "text-primary"
             } font-albertSans`}
         >
           Facilities
-        </NavLink>
+        </a>
         <NavLink to="/">
           <div>
             {type === "white" ? (
