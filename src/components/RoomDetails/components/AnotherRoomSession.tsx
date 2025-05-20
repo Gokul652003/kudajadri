@@ -5,7 +5,7 @@ const AnotherRoomSession = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   return (
-    <div className="sm:px-[6%] sm:py-32 flex sm:justify-between mobile:px-4 mobile:py-14 mobile:flex-col sm:flex-row ">
+    <div className="sm:px-[6%] sm:py-32 flex sm:justify-between mobile:px-4 mobile:py-14 mobile:flex-col sm:flex-row large:px-[12%]">
       <div className="sm:pb-0 mobile:pb-8">
         <span className="text-[#000] sm:text-[44px] mobile:text-[32px] font-ivy ">
           There's Room For Everyone

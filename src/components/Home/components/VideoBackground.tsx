@@ -39,7 +39,7 @@ const VideoBackground = () => {
             </div>
           </div>
           <div className="flex justify-center">
-            <button className="px-6 py-3 rounded-full border text-[#FFF]" onClick={() => {navigate("/booking")}}>
+            <button className="px-6 py-3 rounded-full border text-[#FFF]" onClick={() => {navigate("/contact")}}>
               Book Now
             </button>
           </div>

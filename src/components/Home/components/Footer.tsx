@@ -5,6 +5,9 @@ import twitterLogo from "../../../assets/twitter.svg";
 import threadLogo from "../../../assets/Thread.svg";
 import { Link, useNavigate } from "react-router-dom";
 
+const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER
+const email = import.meta.env.VITE_KUDAJADRI_MAIL;
+
 const Footer = () => {
   const navigate = useNavigate();
   return (
@@ -14,7 +17,7 @@ const Footer = () => {
           Ready to discover nature? Book now.
         </span>
         <div>
-          <button className="px-6 py-3 bg-[#fff] rounded-full text-primary font-albertSans text-base font-medium capitalize" onClick={() => {navigate("/booking")}}>
+          <button className="px-6 py-3 bg-[#fff] rounded-full text-primary font-albertSans text-base font-medium capitalize" onClick={() => {navigate("/contact")}}>
             Book Now
           </button>
         </div>
@@ -32,16 +35,25 @@ const Footer = () => {
             <span className="text-[#fff] font-albertSans text-base uppercase block">
               CONTACT
             </span>
-            <span className="block text-secondary sm:text-xl leading-8 font-albertSans sm:w-[382px]">
-              Kudajadri Drizzle HomestayKayakkandy House, MR School
-              Road,Kaniyambetta, Wayanad,Kerala - 673122, India.
-            </span>
+              <a
+                href={import.meta.env.VITE_GOOGLE_MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-secondary sm:text-xl leading-8 font-albertSans sm:w-[382px]"
+              >
+                Kudajadri Drizzle Homestay, Kayakkandy House, MR School Road,
+                Kaniyambetta, Wayanad, Kerala - 673122, India.
+              </a>
             <div>
               <span className="block text-secondary leading-8 sm:text-xl font-albertSans">
-                +91 9946 354 511{" "}
+                <a href={`tel:${whatsappNumber}`}>{whatsappNumber}</a>
+
               </span>
               <span className="block text-secondary leading-8 sm:text-xl font-albertSans">
-                kudajadri@ymail.com
+                <a
+                  href={`mailto:${email}`}
+                  className="text-secondary text-xl font-albertSans hover:underline"
+                >{email}</a>
               </span>
             </div>
           </div>
@@ -52,9 +64,9 @@ const Footer = () => {
             <div className="text-secondary font-albertSans sm:text-xl  flex flex-col gap-2">
               <Link to='/'>Home</Link>
               <Link to='/about'>About Us</Link>
-              <Link to=''>Room & Tariff</Link>
-              <Link to=''>Facilities & Activities</Link>
-              <Link to=''>Gallery</Link>
+              {/* <Link to=''>Room & Tariff</Link>
+              <Link to=''>Facilities & Activities</Link> */}
+              <Link to='/gallery'>Gallery</Link>
               <Link to='/contact'>Contact Us</Link>
               <Link to='/booking'>Booking</Link>
             </div>

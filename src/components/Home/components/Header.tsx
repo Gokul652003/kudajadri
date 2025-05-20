@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import kudajadrilogo from "../../../assets/kudajadriLogo.svg";
 import kudajadriDarkLogo from "../../../assets/kudajadriDarkLogo.svg";
 import menuIcon from "/src/assets/menuIconHeader.svg";
@@ -7,31 +7,51 @@ import whatAppIcon from "/src/assets/whatappHeader.svg";
 import whatAppBlackIcon from "/src/assets/KudajadriMobileWhatapp.svg";
 import HomeBlackIcon from "/src/assets/kudajadriHomeMobile.svg";
 import MenuBlackIcon from "/src/assets/KudajadriMobileMenu.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 interface HeaderProps {
   type?: "white" | "black";
 }
 export const Header = ({ type = "white" }: HeaderProps) => {
+  const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
+  const isHome = location.pathname === "/" || location.pathname === "/about";
+  const headerColor = scrolled ? "black" : type;
+
+
+  useEffect(() => {
+    if (!isHome) {
+      setScrolled(true); // Always white on non-home pages
+      return;
+    }
+
+    const handleScroll = () => {
+      const heroHeight = 700;
+      setScrolled(window.scrollY > heroHeight - 80); // adjust if your navbar isn't 80px tall
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isHome]);
   return (
-    <>
+    <div className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? "bg-white shadow-md" : "bg-transparent"}`}>
       <div className="sm:py-6 flex gap-24 justify-center items-end mobile:hidden sm:flex">
         <NavLink
           to="/about"
-          className={`px-4 py-2 ${type === "white" ? "text-[#FFF]" : "text-primary"
+          className={`px-4 py-2 ${headerColor === "white" ? "text-[#FFF]" : "text-primary"
             } font-albertSans`}
         >
           About Us
         </NavLink>
         <a
           href="#a"
-          className={`px-4 py-2 ${type === "white" ? "text-[#FFF]" : "text-primary"
+          className={`px-4 py-2 ${headerColor === "white" ? "text-[#FFF]" : "text-primary"
             } font-albertSans`}
         >
           Facilities
         </a>
         <NavLink to="/">
           <div>
-            {type === "white" ? (
+            {headerColor === "white" ? (
               <img src={kudajadrilogo} alt="" />
             ) : (
               <img src={kudajadriDarkLogo} alt="" />
@@ -40,27 +60,27 @@ export const Header = ({ type = "white" }: HeaderProps) => {
         </NavLink>
         <NavLink
           to="/gallery"
-          className={`px-4 py-2 ${type === "white" ? "text-[#FFF]" : "text-primary"
+          className={`px-4 py-2 ${headerColor === "white" ? "text-[#FFF]" : "text-primary"
             } font-albertSans`}
         >
           Gallery
         </NavLink>
         <NavLink
           to="/contact"
-          className={`px-4 py-2 ${type === "white" ? "text-[#FFF]" : "text-primary"
+          className={`px-4 py-2 ${headerColor === "white" ? "text-[#FFF]" : "text-primary"
             } font-albertSans`}
         >
           Contact Us
         </NavLink>
       </div>
-      <PhoneHeader type={type} />
-    </>
+      <PhoneHeader headerColor={headerColor} />
+    </div>
   );
 };
 
 
 
-const PhoneHeader = ({ type }: { type?: "white" | "black" }) => {
+const PhoneHeader = ({ headerColor }: { headerColor?: "white" | "black" }) => {
   const navigate = useNavigate();
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
@@ -69,7 +89,7 @@ const PhoneHeader = ({ type }: { type?: "white" | "black" }) => {
     setSidebarOpen((prevState) => !prevState);
   };
   const openWhatsApp = () => {
-    const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER;; // Replace with the phone number you want to message
+    const phoneNumber = import.meta.env.VITE_WHATSAPP_NUMBER; // Replace with the phone number you want to message
     const message = "Hello, I would like to inquire about your resort services."
     const whatsappUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
 
@@ -81,7 +101,7 @@ const PhoneHeader = ({ type }: { type?: "white" | "black" }) => {
     <div className="flex justify-between p-4 sm:hidden">
       <div>
         {/* Menu icon triggers the sidebar toggle */}
-        {type === "black" ? (
+        {headerColor === "black" ? (
           <img
             src={MenuBlackIcon}
             alt="Menu" // Add descriptive alt text
@@ -98,14 +118,14 @@ const PhoneHeader = ({ type }: { type?: "white" | "black" }) => {
         )}
       </div>
       <div>
-        {type === "black" ? (
+        {headerColor === "black" ? (
           <img src={HomeBlackIcon} alt="Home" onClick={() => navigate("/")} className="cursor-pointer" />
         ) : (
           <img src={logoIcon} alt="Logo" onClick={() => navigate("/")} className="cursor-pointer" />
         )}
       </div>
       <div>
-        {type === "black" ? (
+        {headerColor === "black" ? (
           <img
             src={whatAppBlackIcon}
             alt="WhatsApp"
